@@ -4,20 +4,36 @@ import Input from '../layout/Input'
 import Button from '../layout/Button'
 import Select from '../layout/Select'
 
+const imagesOptions = [
+  {
+    id: 'webp',
+    label: 'webp'
+  },
+  {
+    id: 'png',
+    label: 'png'
+  },
+  {
+    id: 'gif',
+    label: 'gif'
+  },
+  {
+    id: 'jpg',
+    label: 'jpg'
+  }
+]
+
+const defaultImageOption = imagesOptions[0]
+const defaultQuality = 80
+const defaultFormat = defaultImageOption.id
+
 export default function Configuration({ children }) {
   const [quality, setQuality] = useState(80)
-  const [renderProps, setRenderProps] = useState({})
-
-  const imagesFormat = [
-    {
-      id: 'png',
-      label: 'PNG'
-    },
-    {
-      id: 'webp',
-      label: 'WebP'
-    }
-  ]
+  const [format, setFormat] = useState(defaultImageOption.id)
+  const [renderProps, setRenderProps] = useState({
+    quality: defaultQuality,
+    format: defaultFormat
+  })
 
   return (
     <>
@@ -31,10 +47,14 @@ export default function Configuration({ children }) {
         />
         <Select
           label="Image format"
-          options={imagesFormat}
+          options={imagesOptions}
           placeholder="Please select image format"
+          defaultValue={defaultImageOption}
+          onChange={(value) => setFormat(value.id)}
         />
-        <Button onClick={() => setRenderProps({ quality })}>Render</Button>
+        <Button onClick={() => setRenderProps({ quality, format })}>
+          Render
+        </Button>
       </div>
       {children(renderProps)}
     </>

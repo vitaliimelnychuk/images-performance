@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
@@ -10,9 +10,14 @@ export default function Select({
   label,
   options,
   placeholder = '',
+  defaultValue = null,
   onChange = () => null
 }) {
   const [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+    if (defaultValue !== null) setSelected(defaultValue)
+  }, [defaultValue])
 
   return (
     <div className="w-full">

@@ -14,7 +14,7 @@ export default function Home() {
       <main className="flex flex-col w-full flex-1 px-20">
         <div className="container mx-auto grid gap-4 grid-cols-1">
           <Configuration>
-            {({ quality }) => <ImageList quality={quality} />}
+            {(imagesConfigutation) => <ImageList {...imagesConfigutation} />}
           </Configuration>
         </div>
       </main>
