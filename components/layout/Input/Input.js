@@ -7,7 +7,7 @@ export default function Input({
   type = 'text'
 }) {
   return (
-    <div>
+    <div className="w-full">
       <label
         htmlFor="email"
         className="block text-sm font-medium text-gray-700"
