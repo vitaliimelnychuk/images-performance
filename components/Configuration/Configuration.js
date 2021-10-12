@@ -23,13 +23,15 @@ const imagesOptions = [
   }
 ]
 
-const defaultImageOption = imagesOptions[0]
-const defaultQuality = 80
-const defaultFormat = defaultImageOption.id
+const findOption = (format) => imagesOptions.find(({ id }) => id === format)
 
-export default function Configuration({ children }) {
-  const [quality, setQuality] = useState(80)
-  const [format, setFormat] = useState(defaultImageOption.id)
+export default function Configuration({ children, query }) {
+  const defaultImageOption = findOption(query.format) || imagesOptions[0]
+  const defaultFormat = defaultImageOption.id
+  const defaultQuality = query.quality || 80
+
+  const [quality, setQuality] = useState()
+  const [format, setFormat] = useState(defaultImageOption)
   const [renderProps, setRenderProps] = useState({
     quality: defaultQuality,
     format: defaultFormat
@@ -41,7 +43,7 @@ export default function Configuration({ children }) {
         <Input
           label="Quality"
           name="quality"
-          defaultValue={80}
+          defaultValue={defaultQuality}
           placeholder="Enter quality value"
           onChange={(e) => setQuality(e.target.value)}
         />
