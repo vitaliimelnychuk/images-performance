@@ -5,9 +5,32 @@ import ImageList from '../components/ImageList'
 import Configuration from '../components/Configuration'
 
 export default function Home() {
-  const { query, isReady } = useRouter()
+  const router = useRouter()
 
-  if (!isReady) return <>loading...</>
+  if (!router.isReady) return <>loading...</>
+
+  const defaultParams = {
+    quality: 80,
+    format: 'webp'
+  }
+
+  const { quality, format } = router.query
+
+  if (!quality || !format) {
+    const params = {}
+    if (quality) params.quality = quality
+    if (format) params.format = format
+
+    const mergedWithDefaults = {
+      ...defaultParams,
+      params
+    }
+
+    router.push({
+      pathname: '/',
+      query: mergedWithDefaults
+    })
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -18,9 +41,9 @@ export default function Home() {
 
       <main className="flex flex-col w-full flex-1 px-20">
         <div className="container mx-auto grid gap-4 grid-cols-1">
-          <Configuration {...{ query }}>
-            {(imagesConfigutation) => <ImageList {...imagesConfigutation} />}
-          </Configuration>
+          <Configuration {...{ quality, format }} />
+          {/* {(imagesConfigutation) => <ImageList {...imagesConfigutation} />} */}
+          <ImageList {...{ quality, format }} />
         </div>
       </main>
 

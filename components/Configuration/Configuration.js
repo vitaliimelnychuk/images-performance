@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import Input from '../layout/Input'
 import Button from '../layout/Button'
@@ -25,17 +26,15 @@ const imagesOptions = [
 
 const findOption = (format) => imagesOptions.find(({ id }) => id === format)
 
-export default function Configuration({ children, query }) {
-  const defaultImageOption = findOption(query.format) || imagesOptions[0]
-  const defaultFormat = defaultImageOption.id
-  const defaultQuality = query.quality || 80
+export default function Configuration(props) {
+  const router = useRouter()
 
-  const [quality, setQuality] = useState()
+  const defaultImageOption = findOption(props.format)
+  const defaultFormat = defaultImageOption.id
+  const defaultQuality = props.quality
+
+  const [quality, setQuality] = useState(defaultQuality)
   const [format, setFormat] = useState(defaultImageOption)
-  const [renderProps, setRenderProps] = useState({
-    quality: defaultQuality,
-    format: defaultFormat
-  })
 
   return (
     <>
@@ -54,11 +53,14 @@ export default function Configuration({ children, query }) {
           defaultValue={defaultImageOption}
           onChange={(value) => setFormat(value.id)}
         />
-        <Button onClick={() => setRenderProps({ quality, format })}>
+        <Button
+          onClick={() =>
+            router.push({ pathname: '/', query: { quality, format } })
+          }
+        >
           Render
         </Button>
       </div>
-      {children(renderProps)}
     </>
   )
 }
