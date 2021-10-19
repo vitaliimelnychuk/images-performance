@@ -25,6 +25,30 @@ const getFiles = ({ quality, format }) => [
   },
   {
     source: `${host}/photo-1631490000790-f42d842e7c7a?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1632935660126-21c7be77ff5b?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1632714653959-2b49a73ba14f?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1632259699920-4af6b480de8d?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1633929383770-f1300f30a3ac?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1632911401860-99a3d52b7f51?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1632479807993-52a16d48e99e?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1634151296366-6951d7b079b7?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
+  },
+  {
+    source: `${host}/photo-1633876452407-998ae1dda84b?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
   }
 ]
 
