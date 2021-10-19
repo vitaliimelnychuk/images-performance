@@ -1,56 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { imagesUrls } from './data'
 
-const host = 'https://images.unsplash.com'
-const getFiles = ({ quality, format }) => [
-  {
-    source: `${host}/photo-1616927366799-d4cab1b7e545?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632222139524-46f1e74c7a00?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1633110385650-f7a43ac6fce9?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632071929769-2c42d1c29c6a?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632259699908-793677e7ff13?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1633463960820-5be13de85a74?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1631649171966-60487005da38?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1631490000790-f42d842e7c7a?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632935660126-21c7be77ff5b?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632714653959-2b49a73ba14f?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632259699920-4af6b480de8d?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1633929383770-f1300f30a3ac?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632911401860-99a3d52b7f51?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1632479807993-52a16d48e99e?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1634151296366-6951d7b079b7?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  },
-  {
-    source: `${host}/photo-1633876452407-998ae1dda84b?crop=entropy&cs=tinysrgb&fit=max&q=${quality}&fm=${format}&w=1080`
-  }
-]
+const getFiles = ({ quality, format }) =>
+  imagesUrls.map((imageUrl) => ({
+    source: `${imageUrl}?q=${quality}&fm=${format}`
+  }))
 
 export default function Example({ quality, format }) {
   const files = getFiles({ quality, format })
