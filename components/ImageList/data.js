@@ -15,6 +15,6 @@ export const imagesUrls = [
   `${unsplashHost}/photo-1633929383770-f1300f30a3ac`,
   `${unsplashHost}/photo-1632911401860-99a3d52b7f51`,
   `${unsplashHost}/photo-1632479807993-52a16d48e99e`,
-  `${unsplashHost}/photo-1634151296366-6951d7b079b7`,
+  `${unsplashHost}/photo-1634433480491-07e21ad0af5a`,
   `${unsplashHost}/photo-1633876452407-998ae1dda84b`
 ]

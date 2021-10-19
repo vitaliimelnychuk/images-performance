@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { imagesUrls } from './data'
+//`${host}/photo-1616927366799-d4cab1b7e545?crop=entropy&cs=tinysrgb&fit=max&&w=1080`
 
 const getFiles = ({ quality, format }) =>
   imagesUrls.map((imageUrl) => ({
