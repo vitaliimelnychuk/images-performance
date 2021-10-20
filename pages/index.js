@@ -16,33 +16,25 @@ export default function Home() {
       quality: 80,
       format: 'webp',
       fit: 'clip',
-      // 4:3 ratio
       width: 1024,
       height: 768
     }
     if (router.isReady) {
       const { quality, format, height, width, fit } = router.query
 
-      if (!quality || !format || !width || !height || !fit) {
-        const routerParams = {}
-        if (quality) routerParams.quality = quality
-        if (format) routerParams.format = format
-        if (width) routerParams.width = width
-        if (height) routerParams.height = height
-        if (fit) routerParams.fit = fit
+      const routerParams = {}
+      if (quality) routerParams.quality = quality
+      if (format) routerParams.format = format
+      if (fit) routerParams.fit = fit
+      if (height) routerParams.height = height
+      if (width) routerParams.width = width
 
-        const mergedWithDefaults = {
-          ...defaultParams,
-          ...routerParams
-        }
-
-        router.push({
-          pathname: '/',
-          query: mergedWithDefaults
-        })
-      } else {
-        setParams({ quality, format, width, height, fit })
+      const mergedWithDefaults = {
+        ...defaultParams,
+        ...routerParams
       }
+
+      setParams(mergedWithDefaults)
 
       setIsLoading(false)
     }
