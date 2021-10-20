@@ -9,7 +9,6 @@ export default function Home() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(true)
   const [params, setParams] = useState({})
-  const [format, setFormat] = useState('webp')
 
   useEffect(() => {
     const defaultParams = {
@@ -20,18 +19,9 @@ export default function Home() {
       height: 768
     }
     if (router.isReady) {
-      const { quality, format, height, width, fit } = router.query
-
-      const routerParams = {}
-      if (quality) routerParams.quality = quality
-      if (format) routerParams.format = format
-      if (fit) routerParams.fit = fit
-      if (height) routerParams.height = height
-      if (width) routerParams.width = width
-
       const mergedWithDefaults = {
         ...defaultParams,
-        ...routerParams
+        ...router.query
       }
 
       setParams(mergedWithDefaults)
