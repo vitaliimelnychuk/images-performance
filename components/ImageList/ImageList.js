@@ -1,14 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { imagesUrls } from './data'
-//`${host}/photo-1616927366799-d4cab1b7e545?crop=entropy&cs=tinysrgb&fit=max&&w=1080`
 
-const getFiles = ({ quality, format }) =>
+const getFiles = ({ quality, format, fit, width, height }) =>
   imagesUrls.map((imageUrl) => ({
-    source: `${imageUrl}?q=${quality}&fm=${format}`
+    source: `${imageUrl}?q=${quality}&fm=${format}&fit=${fit}&w=${width}&h=${height}`
   }))
 
-export default function Example({ quality, format }) {
-  const files = getFiles({ quality, format })
+export default function Example({ quality, format, fit, width, height }) {
+  const files = getFiles({ quality, format, fit, width, height })
 
   return (
     <ul

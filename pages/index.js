@@ -14,15 +14,22 @@ export default function Home() {
   useEffect(() => {
     const defaultParams = {
       quality: 80,
-      format: 'webp'
+      format: 'webp',
+      fit: 'clip',
+      // 4:3 ratio
+      width: 1024,
+      height: 768
     }
     if (router.isReady) {
-      const { quality, format } = router.query
+      const { quality, format, height, width, fit } = router.query
 
-      if (!quality || !format) {
+      if (!quality || !format || !width || !height || !fit) {
         const routerParams = {}
         if (quality) routerParams.quality = quality
         if (format) routerParams.format = format
+        if (width) routerParams.width = width
+        if (height) routerParams.height = height
+        if (fit) routerParams.fit = fit
 
         const mergedWithDefaults = {
           ...defaultParams,
@@ -34,7 +41,7 @@ export default function Home() {
           query: mergedWithDefaults
         })
       } else {
-        setParams({ quality, format })
+        setParams({ quality, format, width, height, fit })
       }
 
       setIsLoading(false)
