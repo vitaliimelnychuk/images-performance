@@ -28,6 +28,38 @@ const fitOptions = [
   {
     id: 'clip',
     label: 'clip'
+  },
+  {
+    id: 'clamp',
+    label: 'clamp'
+  },
+  {
+    id: 'crop',
+    label: 'crop'
+  },
+  {
+    id: 'facearea',
+    label: 'facearea'
+  },
+  {
+    id: 'fill',
+    label: 'fill'
+  },
+  {
+    id: 'fillmax',
+    label: 'fillmax'
+  },
+  {
+    id: 'max',
+    label: 'max'
+  },
+  {
+    id: 'min',
+    label: 'min'
+  },
+  {
+    id: 'scale',
+    label: 'scale'
   }
 ]
 
