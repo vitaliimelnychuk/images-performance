@@ -69,17 +69,18 @@ const findOption = (options, optionId) =>
 export default function Configuration(props) {
   const router = useRouter()
 
-  const defaultImageOption = findOption(imagesOptions, props.format)
   const defaultQuality = props.quality
   const defaultHeight = props.height
   const defaultWidth = props.width
+
+  const defaultImageOption = findOption(imagesOptions, props.format)
   const defaultFitOption = findOption(fitOptions, props.fit)
 
   const [quality, setQuality] = useState(defaultQuality)
   const [width, setWidth] = useState(defaultWidth)
   const [height, setHeight] = useState(defaultHeight)
-  const [format, setFormat] = useState(defaultImageOption)
-  const [fit, setFit] = useState(defaultFitOption)
+  const [format, setFormat] = useState(defaultImageOption.id)
+  const [fit, setFit] = useState(defaultFitOption.id)
 
   return (
     <>
@@ -123,9 +124,10 @@ export default function Configuration(props) {
 
         <Button
           onClick={() => {
+            console.log(fit, format)
             router.push({
               pathname: '/',
-              query: { quality, format: format.id, width, height, fit: fit.id }
+              query: { quality, format, width, height, fit }
             })
           }}
         >
