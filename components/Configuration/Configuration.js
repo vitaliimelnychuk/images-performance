@@ -122,12 +122,12 @@ export default function Configuration(props) {
         />
 
         <Button
-          onClick={() =>
+          onClick={() => {
             router.push({
               pathname: '/',
-              query: { quality, format, width, height, fit }
+              query: { quality, format: format.id, width, height, fit: fit.id }
             })
-          }
+          }}
         >
           Render
         </Button>
