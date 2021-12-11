@@ -21,6 +21,10 @@ const imagesOptions = [
   {
     id: 'jpg',
     label: 'jpg'
+  },
+  {
+    id: 'avif',
+    label: 'avif'
   }
 ]
 
