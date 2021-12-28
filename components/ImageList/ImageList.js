@@ -39,15 +39,20 @@ const getImagesData = async (params) => {
 
 export default function Example({ quality, format, fit, width, height }) {
   const [images, setImages] = useState({ images: [], totalSize: 0 })
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchImages = async (params) => {
+    setIsLoading(true)
     const imagesData = await getImagesData(params)
     setImages(imagesData)
+    setIsLoading(false)
   }
 
   useEffect(() => {
     fetchImages({ quality, format, fit, width, height })
   }, [quality, format, fit, width, height])
+
+  if (isLoading) return null
 
   return (
     <>
