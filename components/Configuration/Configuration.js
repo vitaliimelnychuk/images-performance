@@ -128,7 +128,6 @@ export default function Configuration(props) {
 
         <Button
           onClick={() => {
-            console.log(fit, format)
             router.push({
               pathname: '/',
               query: { quality, format, width, height, fit }
